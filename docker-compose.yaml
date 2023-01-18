@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  nginx:
+    container_name: my-nginx
+    image: nginx:stable-alpine
+    ports:
+      - 3000:80
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+
+  my-node-app:
+    container_name: my-node-app
+    image: my-node-image
+    depends_on:
+      - mongo
+
+  mongo:
+    container_name: my-mongo
+    image: mongo
+    volumes:
+      - my-mongo-db:/data/db
+  
+  redis:
+    container_name: my-redis
+    image: redis
+
+volumes:
+  my-mongo-db:

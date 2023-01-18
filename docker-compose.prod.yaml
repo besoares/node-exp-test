@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  nginx:
+    ports:
+      - 80:80
+
+  my-node-app:
+    build:
+      context: .
+      args:
+        NODE_ENV: prod
+    env_file:
+      - ./.env
+    command: node index.js
+
+  mongo:
+    env_file:
+      - ./.env.prod
