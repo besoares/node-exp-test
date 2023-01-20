@@ -4,7 +4,7 @@ services:
   my-node-app:
     container_name: my-node-app
     build: .
-    image: my-node-image
+    image: brunoedsr/node-exp-test
     ports:
       - 3000:3000
     volumes:

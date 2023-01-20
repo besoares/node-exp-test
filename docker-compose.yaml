@@ -11,7 +11,7 @@ services:
 
   my-node-app:
     container_name: my-node-app
-    image: my-node-image
+    image: brunoedsr/node-exp-test
     depends_on:
       - mongo
 
